@@ -15,8 +15,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Loyihani ochish
-        run: unzip -q Anatomiya_Android_GitHub.zip -d loyiha
-
+        run: unzip -q Anatomiya_Android_GitHub_ikonka_bilan.zip
       - name: Java o‘rnatish
         uses: actions/setup-java@v4
         with:
