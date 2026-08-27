@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Loyihani ochish
-        run: unzip -oq Anatomiya_Android_GitHub_ikonka_bilan.zip
+        run: run: gradle assembleDebug
       - name: Java o‘rnatish
         uses: actions/setup-java@v4
         with:
@@ -34,4 +34,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Anatomiya-APK
-          path: loyiha/app/build/outputs/apk/debug/app-debug.apk
+          path: app/build/outputs/apk/debug/app-debug.apk
