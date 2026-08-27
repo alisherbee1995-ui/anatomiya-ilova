@@ -1,0 +1,38 @@
+name: APK yaratish
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - asosiy
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Fayllarni olish
+        uses: actions/checkout@v4
+
+      - name: Loyihani ochish
+        run: unzip -q Anatomiya_Android_GitHub.zip -d loyiha
+
+      - name: Java o‘rnatish
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Gradle o‘rnatish
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.7"
+
+      - name: APK yaratish
+        run: cd loyiha && gradle assembleDebug
+
+      - name: APKni saqlash
+        uses: actions/upload-artifact@v4
+        with:
+          name: Anatomiya-APK
+          path: loyiha/app/build/outputs/apk/debug/app-debug.apk
